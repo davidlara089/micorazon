@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .subtext {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .back-button {
+            background-color: #ff6f61;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #d95a4e;
+        }
+
+        /* Corazones flotantes */
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6f61;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 50% 75%, 18% 100%, 0% 38%);
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .subtext {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Te amo mucho, ¡ya sabía que dirías que sí!</h1>
+        <p class="subtext">Eres lo mejor que me ha pasado 💖</p>
+        <br>
+        <a href="index.html" class="back-button">Regresar</a>
+    </div>
+
+    <!-- Corazones flotantes -->
+    <div class="hearts">
+        <div class="heart" style="left:10%; animation-delay:0s;"></div>
+        <div class="heart" style="left:20%; animation-delay:1s;"></div>
+        <div class="heart" style="left:30%; animation-delay:2s;"></div>
+        <div class="heart" style="left:40%; animation-delay:3s;"></div>
+        <div class="heart" style="left:50%; animation-delay:4s;"></div>
+        <div class="heart" style="left:60%; animation-delay:5s;"></div>
+        <div class="heart" style="left:70%; animation-delay:6s;"></div>
+        <div class="heart" style="left:80%; animation-delay:7s;"></div>
+        <div class="heart" style="left:90%; animation-delay:8s;"></div>
+        <div class="heart" style="left:100%; animation-delay:9s;"></div>
+    </div>
+
+    <!-- Reproductor de audio -->
+    <audio autoplay loop>
+        <source src="recursos/belle.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+</body>
+</html>
