@@ -3,10 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi Valentín?</title>
+    <title> :c </title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos para el video de fondo */
+        #videoFondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Para que esté detrás del contenido */
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px; /* Ajusta el tamaño del corazón */
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Video de fondo -->
+    <video id="videoFondo" autoplay loop muted>
+        <source src="recursos/whyvideo.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+    </video>
+
     <div class="container">
         <h1>Melissa ¿Quieres ser mi Valentín?🥰</h1>
         <div class="buttons">
@@ -16,26 +59,32 @@
     </div>
 
     <!-- Corazones flotantes -->
-    <div class="hearts">
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-    </div>
+    <div class="hearts" id="heartsContainer"></div>
 
     <!-- Reproductor de audio -->
     <audio id="backgroundMusic" loop>
-        <source src="recursos/Why.mp3" type="audio/mpeg">
+        <source src="recursos/quiero.mp3" type="audio/mpeg">
         Tu navegador no soporta la reproducción de audio.
     </audio>
 
     <script>
+        // Función para crear corazones
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.getElementById('heartsContainer').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Crear corazones cada medio segundo
+        setInterval(createHeart, 500);
+
         // Intentar reproducir automáticamente al cargar la página
         document.addEventListener("DOMContentLoaded", function() {
             var audio = document.getElementById("backgroundMusic");
